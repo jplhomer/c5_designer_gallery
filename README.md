@@ -1,5 +1,7 @@
 # Concrete5 Designer Gallery
 
+Forked by Josh Larson.
+
 Boilerplate image gallery block that provides all of the back-end code (add/edit dialog and controller) so you can focus on implementing the front-end slideshow, slider, gallery, etc.
 
 For a tutorial on how to use this to build a Flex Slider block, see: <http://c5blog.jordanlev.com/blog/2011/12/build-a-slideshow-block/>
