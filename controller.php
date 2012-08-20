@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
-class DesignerGalleryPackage extends Package {
+class FlexSliderPackage extends Package {
 /*    ^^^^^^^^^^^^^^^
       CHANGE THIS PORTION
       OF THE CLASS NAME TO
@@ -8,16 +8,16 @@ class DesignerGalleryPackage extends Package {
       THE PACKAGE'S NAME.
 */
 
-	protected $pkgHandle = 'designer_gallery';
+	protected $pkgHandle = 'flex_slider';
 	protected $appVersionRequired = '5.4.1';
 	protected $pkgVersion = '1.0';
 	
 	public function getPackageName() {
-		return t('Designer Gallery');
+		return t('Flex Slider');
 	}
 	
 	public function getPackageDescription() {
-		return t('Designer Gallery');
+		return t('A responsive, lightweight slider for C5. Didn\'t want to pay for someone else\'s version.');
 	}
 	
 /* DONE! You generally don't need to change anything below this line.
