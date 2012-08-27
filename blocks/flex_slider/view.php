@@ -38,20 +38,52 @@
  */
 ?>
 
-<div id="gallery<?php echo $bID ?>">
-	<ul>
+<div class="flexslider" id="slider<?php echo $bID ?>">
+	<ul class="slides">
 	<?php foreach ($images as $img): ?>
 		<li>
-			<?php echo $img->title ?>:<br />
-			<img src="<?php echo $img->large->src ?>" width="<?php echo $img->large->width ?>" height="<?php echo $img->large->height ?>" alt="" />
+			<?php if ($img->LinkUrl) { ?>
+			<a href="<?php echo $img->LinkUrl; ?>">
+			<img src="<?php echo $img->large->src ?>" width="<?php echo $img->large->width ?>" height="<?php echo $img->large->height ?>" alt="<?php echo $img->title; ?>" />
+			</a>
+			<?php } else { ?>
+			<img src="<?php echo $img->large->src ?>" width="<?php echo $img->large->width ?>" height="<?php echo $img->large->height ?>" alt="<?php echo $img->title; ?>" />
+			<?php } ?>
 		</li>
 	<?php endforeach; ?>
 	</ul>
 </div>
 
+<?php
+/* Turn boolean values in to literan 'true/false' values for our javascript */
+$isAnimationLoop = ($animationLoop) ? 'true' : 'false';
+$isPauseOnAction = ($pauseOnAction) ? 'true' : 'false';
+$isPauseOnHover = ($pauseOnHover) ? 'true' : 'false';
+$isUseCSS = ($useCSS) ? 'true' : 'false';
+$isTouch = ($touch) ? 'true' : 'false';
+$isControlNav = ($controlNav) ? 'true' : 'false';
+$isDirectionNav = ($directionNav) ? 'true' : 'false';
+?>
+
 <script type="text/javascript">
 $(document).ready(function() {
-	//JQUERY PLUGIN EXAMPLE:
-	//$('#gallery<?php echo $bID ?>').someKindOfGallery();
+	$('#slider<?php echo $bID ?>').flexslider({
+		'animation' : '<?php echo $animation; ?>',
+		'animationLoop' : <?php echo $isAnimationLoop; ?>,
+		'animationSpeed' : '<?php echo $animationSpeed; ?>',
+		'slideshowSpeed' : '<?php echo $slideshowSpeed; ?>',
+		'pauseOnAction' : <?php echo $isPauseOnAction; ?>,
+		'pauseOnHover' : <?php echo $isPauseOnHover; ?>,
+		'useCSS' : <?php echo $isUseCSS; ?>,
+		'touch' : <?php echo $isTouch; ?>,
+		'controlNav' : <?php echo $isControlNav; ?>,
+		'directionNav' : <?php echo $isDirectionNav; ?>,
+		'prevText' : '<?php echo $prevText; ?>',
+		'nextText' : '<?php echo $nextText; ?>',
+		'itemWidth' : '<?php echo $itemWidth; ?>',
+		'itemHeight' : '<?php echo $itemHeight; ?>',
+		'minItems' : '<?php echo $minItems; ?>',
+		'maxItems' : '<?php echo $maxItems; ?>'		
+	});
 });
 </script>

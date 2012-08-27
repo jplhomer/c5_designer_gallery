@@ -1,22 +1,16 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
-class DesignerGalleryBlockController extends BlockController {
-/*    ^^^^^^^^^^^^^^^
-      CHANGE THIS PORTION
-      OF THE CLASS NAME TO
-      CamelCase VERSION OF
-      THE BLOCK'S NAME.
-*/
+class FlexSliderBlockController extends BlockController {
 	
-	protected $btTable = 'btDesignerGallery'; //Must be the same as table name in db.xml.
+	protected $btTable = 'btFlexSlider'; //Must be the same as table name in db.xml.
 	                                          //Should correspond to block's directory/class name.
 	
 	public function getBlockTypeName() {
-		return t('Designer Gallery'); //Appears in "Add Block" list when adding blocks to a page
+		return t('Flex Slider'); //Appears in "Add Block" list when adding blocks to a page
 	}
 	
 	public function getBlockTypeDescription() {
-		return t('Designer Gallery'); //Only appears in dashboard "Add Functionality" page
+		return t('Flex Slider'); //Only appears in dashboard "Add Functionality" page
 	}
 	
 	//Default values for new blocks...
@@ -69,6 +63,17 @@ class DesignerGalleryBlockController extends BlockController {
 		$this->cropThumb = $this->defaultCropThumb;
 		
 		$this->setNormalizedValues();
+		
+		// Go through our Table in the DB to pull out defaults and set them here.
+		$table = new BlockRecord($this->btTable);
+		$tableInfo = $table->TableInfo();
+		$fieldInfo = $tableInfo->flds;
+		foreach ($fieldInfo as $name => $field) {
+		   if ($field->has_default) {
+		      $this->set($name, $field->default_value);
+		   }
+		}
+
 	}
 	
 	public function edit() {

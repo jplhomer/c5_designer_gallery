@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <schema version="0.3">
-	<table name="btDesignerGallery"><!-- this must be the same name as $btTableName in controller.php -->		
+	<table name="btFlexSlider"><!-- this must be the same name as $btTableName in controller.php -->		
 		<field name="bID" type="I"><key /><unsigned /></field>
 		<field name="fsID" type="I"><unsigned /></field>
 		<field name="largeWidth" type="I"><unsigned /></field>
@@ -10,5 +10,21 @@
 		<field name="thumbHeight" type="I"><unsigned /></field>
 		<field name="cropThumb" type="L"><default value="0" /></field>
 		<field name="randomize" type="L"><default value="0" /></field>
+		<field name="animation" type="C2" size="16"><default value="slide" /></field>
+		<field name="animationLoop" type="L"><default value="1" /></field>
+		<field name="slideshowSpeed" type="I"><default value="7000" /></field>
+		<field name="animationSpeed" type="I"><default value="600" /></field>
+		<field name="pauseOnAction" type="L"><default value="1" /></field>
+		<field name="pauseOnHover" type="L"><default value="0" /></field>
+		<field name="useCSS" type="L"><default value="1" /></field>
+		<field name="touch" type="L"><default value="1" /></field>
+		<field name="controlNav" type="L"><default value="1" /></field>
+		<field name="directionNav" type="L"><default value="1" /></field>
+		<field name="prevText" type="C2" size="16"><default value="Previous" /></field>
+		<field name="nextText" type="C2" size="16"><default value="Next" /></field>
+		<field name="itemWidth" type="I"><default value="0" /></field>
+		<field name="itemMargin" type="I"><default value="0" /></field>
+		<field name="minItems" type="I"><default value="0" /></field>
+		<field name="maxItems" type="I"><default value="0" /></field>
 	</table>
 </schema>
